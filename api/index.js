@@ -17,6 +17,11 @@ export default async function handler(req, res) {
     {name: 'prefers-color-scheme', value: 'dark'},
   ]);
 
+  await page.setViewport({
+    width: '800px',
+    height: '800px'
+});
+
   await page.goto(url, { waitUntil: "networkidle2" });
 
   await page.addStyleTag({content: '.public-message { display: none; }'})
