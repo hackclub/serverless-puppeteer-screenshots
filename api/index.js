@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   ]);
 
   await page.setViewport({
-    width: 800,
+    width: 1200,
     height: 800
 });
 
