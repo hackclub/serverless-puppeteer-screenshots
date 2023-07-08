@@ -13,10 +13,15 @@ export default async function handler(req, res) {
 
   let page = await browser.newPage();
 
+  await page.emulateMediaFeatures([
+    {name: 'prefers-color-scheme', value: 'dark'},
+  ]);
+
   await page.goto(url, { waitUntil: "networkidle2" });
 
   if (as === "pdf") {
     const pdf = await page.pdf({ format: "A4" });
+
     await browser?.close();
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader("Accept-Ranges", "bytes");
