@@ -18,8 +18,8 @@ export default async function handler(req, res) {
   ]);
 
   await page.setViewport({
-    width: '800px',
-    height: '800px'
+    width: 800,
+    height: 800
 });
 
   await page.goto(url, { waitUntil: "networkidle2" });
