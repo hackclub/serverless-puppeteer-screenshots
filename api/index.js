@@ -17,6 +17,8 @@ export default async function handler(req, res) {
     {name: 'prefers-color-scheme', value: 'dark'},
   ]);
 
+  await page.addStyleTag({content: '.transparency-banner { display: none; }'})
+
   await page.goto(url, { waitUntil: "networkidle2" });
 
   if (as === "pdf") {
